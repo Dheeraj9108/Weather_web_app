@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header}}
+</head>
+
+<body>
+{{>navbar}}
+
+
+    <!-- main header  -->
+    <div class="container-fluid main_header">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+               <div class="main_content">
+                   <form class="temp_form">
+                       <input type="text" id="cityname" placeholder="Enter your city Name" autocomplete="off">
+                       <input type="Submit" value="Search" id="submitBtn">
+                   </form>
+               </div>
+
+               <div class="tempInfo">
+                   <div class="top_layer">
+                       <p id="day">Tuesday</p>
+                       <p class="today_date">13 OCT</p>
+                   </div>
+                   <div class="main_layer">
+                       <p id="city_name">Get Output Here</p>
+                       <div class="mid_layer data_hide">
+                           <p id="temp"> <span id="temp_real_val">0</span> <sup>o</sup>C</p>
+                           <p id="temp_status"> <i class="fa fa-cloud" aria-hidden="true"></i></p>
+                       </div>
+                   </div>
+               </div>
+            </div>
+        </div>
+    </div>
+{{>footer}}
+<script src="js/main.js"></script>
+<script>
+    let day = document.getElementById('day');
+    let today_date = document.getElementById('today_date');
+
+    const getcurrentday = () =>{
+        let dayarr = new Array(7);
+        dayarr[0] = "Sunday";
+        dayarr[1] = "Monday";
+        dayarr[2] = "Tuesday";
+        dayarr[3] = "Wednesday";
+        dayarr[4] = "Thursday";
+        dayarr[5] = "Friday";
+        dayarr[6] = "Saturday";
+        
+        let currentTime = new Date();
+        days = dayarr[currentTime.getDay()];
+       
+        {{!-- today_date.innerText = currentTime.getDate(); --}}
+        day.innerText = days;
+
+    } ;
+    getcurrentday();
+</script>
+</body>
+
+</html>
